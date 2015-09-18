@@ -55,6 +55,8 @@ public class Problem1Main {
                     // remove punctuation, non letter characters and convert to lowercase
                     // frowning count should be 16 but final result is 15.
                     // should not have 275 count of empty.
+
+                    // maybe I shouldn't use split...
                     String[] words = currentLine.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
                     //System.out.println(Arrays.toString(words) + " " + words.length);
                     wordList.addAll(Arrays.asList(words));
