@@ -61,7 +61,7 @@ public class Problem1Main {
                         String[] words = currentLine.split("\\s+");
                         wordList.addAll(Arrays.asList(words));
                     }
-                    
+
                 }
 
             }
