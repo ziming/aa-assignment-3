@@ -46,8 +46,6 @@ public class Problem1Main {
 
             while ((currentLine = br.readLine()) != null) {
 
-                // https://stackoverflow.com/questions/28295504/how-to-trim-no-break-space-in-java
-                currentLine = currentLine.replace('\u00A0', ' ').replace('\u2007', ' ').replace('\u202F', ' ').trim();
 
                 if (currentLine.length() != 0) {
 
@@ -57,11 +55,14 @@ public class Problem1Main {
                     // should not have 275 count of empty.
 
                     // maybe I shouldn't use split...
-                    String[] words = currentLine.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
-                    //System.out.println(Arrays.toString(words) + " " + words.length);
-                    wordList.addAll(Arrays.asList(words));
-                }
+                    currentLine = currentLine.replaceAll("[^A-Za-z\\s]", "").trim().toLowerCase();
 
+                    if (currentLine.length() != 0) {
+                        String[] words = currentLine.split("\\s+");
+                        wordList.addAll(Arrays.asList(words));
+                    }
+                    
+                }
 
             }
 
