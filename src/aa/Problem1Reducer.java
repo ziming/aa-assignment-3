@@ -20,12 +20,12 @@ public class Problem1Reducer implements Reducer {
 
         List<AtomicInteger> countList = (List<AtomicInteger>) data;
 
-        HashMap<String, AtomicInteger> resultMap = new HashMap<>();
+        HashMap<String, Integer> resultMap = new HashMap<>();
 
-        AtomicInteger finalCount = new AtomicInteger();
+        int finalCount = 0;
 
         for (AtomicInteger count : countList) {
-            finalCount.getAndAdd(count.intValue());
+            finalCount += count.intValue();
         }
 
         resultMap.put((String) key, finalCount);

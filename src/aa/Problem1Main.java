@@ -25,7 +25,7 @@ public class Problem1Main {
             Map<Object, List> finalResults = MapReduce.mapReduce(problem1Mapper, problem1Reducer, wordList, numShards, verbose);
 
             for (Object word : finalResults.keySet()) {
-//                System.out.println(word + ", " + finalResults.get(word));
+                System.out.println(word + ", " + finalResults.get(word).get(0));
             }
 
         } catch (InterruptedException e) {
@@ -51,8 +51,10 @@ public class Problem1Main {
 
                     // should I do it here or at the mapper?
                     // remove punctuation, non letter characters and convert to lowercase
+                    // frowning count should be 16 but final result is 15.
+                    // should not have 275 count of empty.
                     String[] words = currentLine.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
-                    System.out.println(Arrays.toString(words) + " " + words.length);
+                    //System.out.println(Arrays.toString(words) + " " + words.length);
                     wordList.addAll(Arrays.asList(words));
                 }
 
