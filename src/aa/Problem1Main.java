@@ -46,7 +46,9 @@ public class Problem1Main {
 
             while ((currentLine = br.readLine()) != null) {
 
-                currentLine = currentLine.trim();
+                // https://stackoverflow.com/questions/28295504/how-to-trim-no-break-space-in-java
+                currentLine = currentLine.replace('\u00A0', ' ').replace('\u2007', ' ').replace('\u202F', ' ').trim();
+
                 if (currentLine.length() != 0) {
 
                     // should I do it here or at the mapper?
