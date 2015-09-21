@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +46,7 @@ public class Problem1Main {
             while ((currentLine = br.readLine()) != null) {
 
 
+                // too many length check. Whatever.
                 if (currentLine.length() != 0) {
 
                     // should I do it here or at the mapper?
@@ -54,14 +54,26 @@ public class Problem1Main {
                     // frowning count should be 16 but final result is 15.
                     // should not have 275 count of empty.
 
-                    // possible bugs don't become dont
-
                     // maybe I shouldn't use split...
-                    currentLine = currentLine.replaceAll("[^A-Za-z\\s]", "").trim().toLowerCase();
+                    currentLine = currentLine.replaceAll("[^A-Za-z'\"\\s]", "").trim().toLowerCase();
 
                     if (currentLine.length() != 0) {
                         String[] words = currentLine.split("\\s+");
-                        wordList.addAll(Arrays.asList(words));
+
+
+                        // Remove end quotes. but if it is like don't then keep them
+                        for (String word : words) {
+                            word = word
+                                    .replaceAll("^['\"]+", "")
+                                    .replaceAll("['\"]+$", "");
+
+                            if (word.length() != 0) {
+                                wordList.add(word);
+                            }
+
+
+                        }
+//                        wordList.addAll(Arrays.asList(words));
                     }
 
                 }
