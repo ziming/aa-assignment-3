@@ -15,7 +15,7 @@ public class Problem1Main {
         List<String> wordList = readFile();
         Mapper problem1Mapper = new Problem1Mapper();
         Reducer problem1Reducer = new Problem1Reducer();
-        int numShards = 8;
+        int numShards = 1;
 
         // true will make the framework output (S.O.P) a bunch of text about what it is doing.
         boolean verbose = false;
@@ -53,6 +53,8 @@ public class Problem1Main {
                     // remove punctuation, non letter characters and convert to lowercase
                     // frowning count should be 16 but final result is 15.
                     // should not have 275 count of empty.
+
+                    // possible bugs don't become dont
 
                     // maybe I shouldn't use split...
                     currentLine = currentLine.replaceAll("[^A-Za-z\\s]", "").trim().toLowerCase();
