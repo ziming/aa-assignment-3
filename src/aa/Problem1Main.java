@@ -55,17 +55,17 @@ public class Problem1Main {
                     // should not have 275 count of empty.
 
                     // maybe I shouldn't use split...
-                    currentLine = currentLine.replaceAll("[^A-Za-z'\"\\s]", "").trim().toLowerCase();
+                    currentLine = currentLine.replaceAll("[^-A-Za-z'\"\\s]", "").trim().toLowerCase();
 
                     if (currentLine.length() != 0) {
-                        String[] words = currentLine.split("\\s+");
+                        String[] words = currentLine.split("[-\\s]+");
 
 
                         // Remove end quotes. but if it is like don't then keep them
                         for (String word : words) {
                             word = word
-                                    .replaceAll("^['\"]+", "")
-                                    .replaceAll("['\"]+$", "");
+                                    .replaceAll("^[-'\"]+", "")
+                                    .replaceAll("[-'\"]+$", "");
 
                             if (word.length() != 0) {
                                 wordList.add(word);
