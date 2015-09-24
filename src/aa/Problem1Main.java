@@ -58,7 +58,7 @@ public class Problem1Main {
                     currentLine = currentLine.replaceAll("[^-A-Za-z'\"\\s]", "").trim().toLowerCase();
 
                     if (currentLine.length() != 0) {
-                        String[] words = currentLine.split("[-\\s]+");
+                        String[] words = currentLine.split("\\s+");
 
 
                         // Remove end quotes. but if it is like don't then keep them
