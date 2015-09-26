@@ -70,7 +70,7 @@ public class Problem2Mapper implements Mapper {
 
         // assumption any where in the review coffee appear, even profile name, it is counted.
         for (String field : foodReview) {
-            if (field.contains(wordToCheck)) {
+            if (field.toLowerCase().contains(wordToCheck)) {
                 return true;
             }
         }
