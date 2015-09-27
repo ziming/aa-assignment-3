@@ -87,7 +87,6 @@ public class Problem1Main {
 
 //        System.out.println(wordList.size());
 
-        // pittance, , baptista, it, likes, hmmm got empty space. still got bug. but assume it work now.
 //        for (String word : wordList) {
 //            System.out.println(word);
 //        }
