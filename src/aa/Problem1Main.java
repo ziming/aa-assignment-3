@@ -50,11 +50,14 @@ public class Problem1Main {
                 if (currentLine.length() != 0) {
 
                     // should I do it here or at the mapper?
-                    // remove punctuation, non letter characters and convert to lowercase
-                    // frowning count should be 16 but final result is 15.
-                    // should not have 275 count of empty.
 
-                    // maybe I shouldn't use split...
+
+                    // maybe I shouldn't do it this way
+
+                    // remove all the fake en or em dash. replace with normal space there is no --- in the text so far only --
+                    currentLine = currentLine.replace("--", " ");
+
+                    // remove everything that is not dash, a to z A to Z or white space
                     currentLine = currentLine.replaceAll("[^-A-Za-z'\"\\s]", "").trim().toLowerCase();
 
                     if (currentLine.length() != 0) {
