@@ -17,12 +17,12 @@ public class Problem1Main {
         int numShards = 1;
 
         // true will make the framework output (S.O.P) a bunch of text about what it is doing.
-        boolean verbose = false;
+        boolean verbose = true;
 
         try {
 
             Map<Object, List> finalResults = MapReduce.mapReduce(problem1Mapper, problem1Reducer, wordList, numShards, verbose);
-
+            // System.out.println(finalResults.size());
             for (Object word : finalResults.keySet()) {
                 System.out.println(word + ", " + finalResults.get(word).get(0));
             }
