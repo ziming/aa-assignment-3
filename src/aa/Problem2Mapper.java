@@ -32,43 +32,25 @@ public class Problem2Mapper implements Mapper {
         // prof interface returns HashMap so use HashMap instead of Map
         HashMap<String, Double> foodReviewMap = new HashMap<>();
 
+        double foodReviewWithWordCount = 0.0;
+        double foodReviewWithWordTotalScore = 0.0;
+
         for (String[] foodReview : foodReviewList) {
 
             if (wordExistInReview(Problem2Main.WORD_TO_CHECK, foodReview)) {
 
-                // 1. Count reviews with word cofee in it
-                Double foodReviewWithWordCount = foodReviewMap.get("REVIEW_WITH_WORD_COUNT");
-
-                if (foodReviewWithWordCount != null) {
-
-                    foodReviewMap.put("REVIEW_WITH_WORD_COUNT", ++foodReviewWithWordCount);
-
-                } else {
-                    foodReviewMap.put("REVIEW_WITH_WORD_COUNT", 1.0);
-                }
+                // 1. Count reviews with word coffee in it
+                foodReviewWithWordCount++;
 
                 // accumulate the score for later average calculation
-
-                double score = Double.parseDouble(foodReview[SCORE]);
-
-                Double foodReviewWithWordTotalScore = foodReviewMap.get("REVIEW_WITH_WORD_TOTAL_SCORE");
-
-                if (foodReviewWithWordTotalScore != null) {
-
-                    foodReviewMap.put("REVIEW_WITH_WORD_TOTAL_SCORE", foodReviewWithWordTotalScore + score);
-
-                } else {
-                    foodReviewMap.put("REVIEW_WITH_WORD_TOTAL_SCORE", score);
-                }
+                foodReviewWithWordTotalScore += Double.parseDouble(foodReview[SCORE]);
 
             }
 
-
         }
 
-//        System.out.println(foodReviewMap.get("REVIEW_WITH_WORD_COUNT"));
-
-
+        foodReviewMap.put("REVIEW_WITH_WORD_COUNT", foodReviewWithWordCount);
+        foodReviewMap.put("REVIEW_WITH_WORD_TOTAL_SCORE", foodReviewWithWordTotalScore);
         return foodReviewMap;
 
     }
