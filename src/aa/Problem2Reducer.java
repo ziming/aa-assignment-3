@@ -21,7 +21,6 @@ public class Problem2Reducer implements Reducer {
 
         HashMap<String, Double> resultMap = new HashMap<>();
 
-
         // both are the same REVIEW_WITH_WORD_TOTAL_SCORE and REVIEW_WITH_WORD_COUNT
         double totalCount = 0.0;
 

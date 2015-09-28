@@ -40,7 +40,9 @@ public class Problem2Mapper implements Mapper {
                 Double foodReviewWithWordCount = foodReviewMap.get("REVIEW_WITH_WORD_COUNT");
 
                 if (foodReviewWithWordCount != null) {
-                    foodReviewWithWordCount++;
+
+                    foodReviewMap.put("REVIEW_WITH_WORD_COUNT", ++foodReviewWithWordCount);
+
                 } else {
                     foodReviewMap.put("REVIEW_WITH_WORD_COUNT", 1.0);
                 }
@@ -52,7 +54,9 @@ public class Problem2Mapper implements Mapper {
                 Double foodReviewWithWordTotalScore = foodReviewMap.get("REVIEW_WITH_WORD_TOTAL_SCORE");
 
                 if (foodReviewWithWordTotalScore != null) {
-                    foodReviewWithWordTotalScore += score;
+
+                    foodReviewMap.put("REVIEW_WITH_WORD_TOTAL_SCORE", foodReviewWithWordTotalScore + score);
+
                 } else {
                     foodReviewMap.put("REVIEW_WITH_WORD_TOTAL_SCORE", score);
                 }
@@ -61,6 +65,9 @@ public class Problem2Mapper implements Mapper {
 
 
         }
+
+//        System.out.println(foodReviewMap.get("REVIEW_WITH_WORD_COUNT"));
+
 
         return foodReviewMap;
 

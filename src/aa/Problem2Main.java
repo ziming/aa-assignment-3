@@ -26,7 +26,7 @@ public class Problem2Main {
 
         Mapper problem2Mapper = new Problem2Mapper();
         Reducer problem2Reducer = new Problem2Reducer();
-        int numShards = 8;
+        int numShards = 1;
 
         // true will make the framework output (S.O.P) a bunch of text about what it is doing.
         boolean verbose = false;
