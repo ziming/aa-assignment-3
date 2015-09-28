@@ -17,15 +17,24 @@ public class Problem1Main {
         int numShards = 1;
 
         // true will make the framework output (S.O.P) a bunch of text about what it is doing.
-        boolean verbose = true;
+        boolean verbose = false;
 
         try {
+//            System.out.println(wordList.size()); // 898197
 
+            // We are only gonna time the map reduce job
+            StopWatch stopWatch = new StopWatch();
+            stopWatch.start();
             Map<Object, List> finalResults = MapReduce.mapReduce(problem1Mapper, problem1Reducer, wordList, numShards, verbose);
-            // System.out.println(finalResults.size());
+            long timeTaken = stopWatch.stop();
+
+//            System.out.printf("Number of unique words: %d\n", finalResults.size());
+
             for (Object word : finalResults.keySet()) {
                 System.out.println(word + ", " + finalResults.get(word).get(0));
             }
+
+            System.out.printf("Time taken (ms): %d", timeTaken);
 
         } catch (InterruptedException e) {
 
@@ -46,19 +55,16 @@ public class Problem1Main {
             while ((currentLine = br.readLine()) != null) {
 
 
-                // too many length check. Whatever.
+                // too many length check. Whatever. Just to play safe.
                 if (currentLine.length() != 0) {
-
-                    // should I do it here or at the mapper?
-
 
                     // maybe I shouldn't do it this way
 
                     // remove all the fake en or em dash. replace with normal space there is no --- in the text so far only --
-                    currentLine = currentLine.replace("--", " ");
+                    currentLine = currentLine.replace("--", "  ");
 
-                    // remove everything that is not dash, a to z A to Z or white space
-                    currentLine = currentLine.replaceAll("[^-A-Za-z'\"\\s]", "").trim().toLowerCase();
+                    // remove everything that is not dash, a to z, A to Z, ' or white space
+                    currentLine = currentLine.replaceAll("[^-A-Za-z'\\s]", "").trim().toLowerCase();
 
                     if (currentLine.length() != 0) {
                         String[] words = currentLine.split("\\s+");
@@ -66,16 +72,17 @@ public class Problem1Main {
 
                         // Remove end quotes. but if it is like don't then keep them
                         for (String word : words) {
+
                             word = word
-                                    .replaceAll("^[-'\"]+", "")
-                                    .replaceAll("[-'\"]+$", "");
+                                    .replaceAll("^[-']+", "")
+                                    .replaceAll("[-']+$", "");
 
                             if (word.length() != 0) {
                                 wordList.add(word);
                             }
 
-
                         }
+
 //                        wordList.addAll(Arrays.asList(words));
                     }
 
