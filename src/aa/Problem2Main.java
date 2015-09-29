@@ -51,6 +51,7 @@ public class Problem2Main {
     private static List<String[]> readFile() {
 
         /*
+            [productId, userId, profileName, helpfulness, score, time, summary, text]
             product/productId: B0026Y3YBK
             review/userId: A38BUM0OXH38VK
             review/profileName: singlewinder
@@ -59,7 +60,6 @@ public class Problem2Main {
             review/time: 1347667200
             review/summary: Best everyday cookie!
             review/text: In the 1980s I spent several
-            product/productId: B0026Y3YSS
             ...
          */
 

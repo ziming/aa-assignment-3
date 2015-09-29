@@ -14,7 +14,7 @@ public class Problem1Main {
         List<String> wordList = readFile();
         Mapper problem1Mapper = new Problem1Mapper();
         Reducer problem1Reducer = new Problem1Reducer();
-        int numShards = 1;
+        int numShards = 2;
 
         // true will make the framework output (S.O.P) a bunch of text about what it is doing.
         boolean verbose = false;
@@ -35,6 +35,7 @@ public class Problem1Main {
             }
 
             System.out.printf("Time taken (ms): %d", timeTaken);
+
 
         } catch (InterruptedException e) {
 

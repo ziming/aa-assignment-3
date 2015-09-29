@@ -57,11 +57,16 @@ public class Problem2Mapper implements Mapper {
 
     private boolean wordExistInReview(String wordToCheck, String[] foodReview) {
 
+        // \b is word boundary in regex. \b may not be as robust as I think but let's trust how the experts defines word boundary.
+        String regex = ".*\\b" + wordToCheck.toLowerCase() + "\\b.*";
+
         // assumption any where in the review coffee appear, even profile name, it is counted.
         for (String field : foodReview) {
-            if (field.toLowerCase().contains(wordToCheck.toLowerCase())) {
+
+            if (field.toLowerCase().matches(regex)) {
                 return true;
             }
+
         }
 
         return false;
