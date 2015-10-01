@@ -62,6 +62,7 @@ public class Problem1Main {
                     // maybe I shouldn't do it this way
 
                     // remove all the fake en or em dash. replace with normal space there is no --- in the text so far only --
+                    currentLine = currentLine.replace("---", "   ");
                     currentLine = currentLine.replace("--", "  ");
 
                     // remove everything that is not dash, a to z, A to Z, ' or white space
@@ -71,7 +72,7 @@ public class Problem1Main {
                         String[] words = currentLine.split("\\s+");
 
 
-                        // Remove end quotes. but if it is like don't then keep them
+                        // Remove front and end quotes and dashes. but if it is like don't then keep them
                         for (String word : words) {
 
                             word = word
