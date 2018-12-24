@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * @author kevinsteppe
  *         based on ideas from Google (http://labs.google.com/papers/mapreduce.html)
  *         and the implementation from http://semanticlinguine.blogspot.com
  *         <p>
