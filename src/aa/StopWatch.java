@@ -1,8 +1,5 @@
 package aa;
 
-/**
- * Created by kevinsteppe on 4/8/15.
- */
 public class StopWatch {
     private long start = 0;
     private long end = 0;
